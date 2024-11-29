@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+
+
+<style>
+
+    .txt {
+        text-align: center;
+        font-size: 25px;
+        padding: 50px;
+    }
+
+        .txt p {
+            text-align: center;
+            font-size: 20px;
+           text-align : justify;
+        }
+
+
+
+
+    .image-grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 65px;
+    }
+
+        .image-grid img {
+            width: 33.33%;
+            height: auto;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+</style>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<main aria-labelledby="title">
+
+    <div>
+        <img src="https://www.globalgiving.org/img/banners/hero_aboutus_lg.jpg"  width="100%" height="400px">
+        @*<img img src="~/Content/images/pexels-photo-3228685.jpeg" width="100%" height="400px"> *@
+
+    </div>
+
+    <div class="txt">
+        About Us<br><br>
+        <p>
+            Donation refers to the act of giving money, goods, or other resources to a charitable organization or individual in need. Donations are typically made to support a particular cause or to help those who are less fortunate. Charitable organizations rely on donations to fund their operations and provide services to those in need.
+
+            There are many different types of donations, including monetary donations, donations of goods or services, and donations of time or volunteer work. Donations can be made to a variety of organizations, such as religious institutions, non-profit organizations, and foundations.
+
+            Many people choose to make donations as a way of giving back to their communities or supporting causes that are important to them. Donations can have a significant impact on the lives of those who receive them, and they can also provide a sense of fulfillment and satisfaction to those who make them.
+        </p>
+    </div>
+
+    <div style="text-align: center; font-size: 50px;">
+        We rise by lifting others
+    </div>
+   @* <div class="image-grid">
+        <img src="C:\claysys\day2 task\grid\img1.png" alt="Image 1">
+        <img src="C:\claysys\day2 task\grid\img2.png" alt="Image 2">
+        <img src="C:\claysys\day2 task\grid\img3.png" alt="Image 3">
+        <img src="C:\claysys\day2 task\grid\img5.jpeg" alt="Image 4">
+        <img src="C:\claysys\day2 task\grid\img6.jpeg" alt="Image 5">
+        <img src="C:\claysys\day2 task\grid\img7.png" alt="Image 6">
+    </div>*@
+    <div class="image-grid">
+        <img src="~/Content/images/pexels-photo-12671875.jpeg" />
+        <img src="~/Content/images/pexels-photo-4888440.jpeg" />
+        <img src="~/Content/images/pexels-photo-6472487.jpeg" />
+        <img src="~/Content/images/pexels-photo-6646990.jpeg" />
+        <img src="~/Content/images/pexels-photo-6647007.jpeg" />
+        <img src="~/Content/images/pexels-photo-6646975.jpeg" />
+        </div>
+
+      
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function createSlideshow() {
+        var container = $('#slideshow-container');
+        var images = [
+            'Images/image1.jpg',
+            'Images/image2.jpg',
+            'Images/image3.jpg'
+        ];
+        var html = '';
+        for (var i = 0; i < images.length; i++) {
+            html += '<img src="' + images[i] + '" class="slide-image" />';
+        }
+        container.html(html);
+    }
+
+    $(document).ready(function () {
+        createSlideshow();
+    });
+
+
+
+</script>

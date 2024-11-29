@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/Header.css" rel="stylesheet" />
+    <link href="~/Content/CSS/footer.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="header">
+
+
+        <div class="link1">
+            @Html.ActionLink("Home", "Index", "Home")
+            @Html.ActionLink("About", "About", "Home")
+            @Html.ActionLink("Sign up", "AddDetail", "Home")
+            @Html.ActionLink("Sign in", "Login", "Home")
+            @Html.ActionLink("Contact us", "AddContactDetail", "Home")
+
+        </div>
+    </div>
+
+    @RenderBody()
+    <hr />
+    @** <footer class="foot">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer> *@
+
+   @* <div class="footer-basic">
+       
+           
+ 
+            <p class="copyright">Company Name © 2018</p>
+    </div>*@
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

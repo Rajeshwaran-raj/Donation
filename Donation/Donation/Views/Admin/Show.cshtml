@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Donation.Models.UserImageModel>
+
+@{
+    ViewBag.Title = "Show";
+    Layout = null;
+}
+
+<link href="~/Content/Header.css" rel="stylesheet" />
+<link href="~/Content/CSS/login.css" rel="stylesheet" />
+
+
+
+
+<div class="header">
+
+
+    <div class="link1">
+        <i class="fa-solid fa-house" style="color: #5A769E;" onclick=" location.href='@Url.Action("Login","Home")' "></i>
+        @Html.ActionLink("Home", "AdminPageView", "Admin")
+        @Html.ActionLink("Edit User Details", "GetDetails", "Admin")
+        @Html.ActionLink("Contact details", "GetContactDetails", "Admin")
+        @Html.ActionLink("Add Donatiom", "AddAdminDonation", "Admin")
+        @Html.ActionLink("Donation Detials", "IndexAddAdminDonation", "Admin")
+
+    </div>
+</div>
+
+
+
+
+<div class="image-display">
+    @foreach (var item in Model)
+    {
+        <img src="@item.userImage" width="100" height="100" />
+    }
+</div>
+@**<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userImage)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userImage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    </table>*@

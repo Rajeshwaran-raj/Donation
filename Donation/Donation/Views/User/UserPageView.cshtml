@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<link href="~/Content/Header.css" rel="stylesheet" />
+
+@*<div class="topnav">
+    <div class="back">
+        <button class="back-btn" onclick="location.href='@Url.Action("Login","Home")'"><b>Logout</b></button>
+    </div>*@
+    <div class="header">
+
+
+        <div class="link1">
+            <b> Welcome @Session["Username"]</b>
+            @Html.ActionLink("Home", "UserPageView", "User")
+            @Html.ActionLink("About", "About", "User")
+            @*    @Html.ActionLink("Create Donation", "CreateDonation", "User") *@
+            @Html.ActionLink("Donation!", "ViewAddAdminDonation", "User")
+            @Html.ActionLink("Contact", "Contact", "User")
+
+        </div>
+      </div>

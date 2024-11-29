@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "AdminPageView";
+    Layout = null;
+}
+
+
+<link href="~/Content/Header.css" rel="stylesheet" />
+<link href="~/Content/CSS/login.css" rel="stylesheet" />
+
+
+
+
+<div class="header">
+
+
+    <div class="link1">
+
+        <i class="fa-solid fa-house" style="color: #5A769E;" onclick=" location.href='@Url.Action("LogOff","Admin")' "></i>
+        @Html.ActionLink("Home", "AdminPageView", "Admin")
+        @Html.ActionLink("Edit User Details", "GetDetails", "Admin")
+        @Html.ActionLink("Contact details", "GetContactDetails", "Admin")
+        @Html.ActionLink("Add Donation", "AddAdminDonation", "Admin")
+        @Html.ActionLink("Donation Detials", "IndexAddAdminDonation", "Admin")
+        <b> Welcome @Session["Username"]</b>
+
+    </div>
+</div>

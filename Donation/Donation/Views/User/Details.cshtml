@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Donation.Models.Registration>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+<link href="~/Content/Header.css" rel="stylesheet" />
+<link href="~/Content/CSS/tablestyle.css" rel="stylesheet" />
+
+<div class="header">
+
+
+    <div class="link1">
+
+        <b> Welcome @Session["Username"]</b>
+        @Html.ActionLink("Home", "UserPageView", "User")
+        @Html.ActionLink("About", "About", "User")
+        @*    @Html.ActionLink("Create Donation", "CreateDonation", "User") *@
+        @Html.ActionLink("Donation!", "ViewAddAdminDonation", "User")
+        @Html.ActionLink("Contact", "Contact", "User")
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateofbirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pincode)
+        </th>
+        @*
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.confirmpassword)
+            </th>
+        *@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateofbirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pincode)
+            </td>
+            @*
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.confirmpassword)
+                </td>
+            *@
+            @* <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                </td>
+            *@
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,68 @@
+﻿@model Donation.Models.UserImageModel
+
+@{
+    ViewBag.Title = "CreateDonation";
+    Layout = null;
+}
+<link href="~/Content/CSS/basicstyle form.css" rel="stylesheet" />
+
+
+<link href="~/Content/Header.css" rel="stylesheet" />
+<div class="header">
+
+
+    <div class="link1">
+
+        <b> Welcome @Session["Username"]</b>
+
+        @Html.ActionLink("Home", "UserPageView", "User")
+        @Html.ActionLink("About", "About", "User")
+        @*    @Html.ActionLink("Create Donation", "CreateDonation", "User") *@
+        @Html.ActionLink("Donation!", "ViewAddAdminDonation", "User")
+        @Html.ActionLink("Contact", "Contact", "User")
+    </div>
+    </div>
+     
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="login form">
+                    <div class="form-horizontal">
+                        <header>Donation</header>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.userId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.userId, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.userId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.userImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.userImage, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.userImage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @**  <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        *@
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

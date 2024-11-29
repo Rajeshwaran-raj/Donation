@@ -1,0 +1,136 @@
+﻿@model Donation.Models.LoginMod
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<link href="~/Content/CSS/basicstyle form.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="container">
+    <div class="login form">
+
+        <header>Login</header>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="button" />
+            </div>
+        </div>
+        <span class="signup">
+            Don't have an account?
+            <label for="check" >
+                
+                    @Html.ActionLink(" Signup", "AddDetail", "Home")
+
+                    Signup
+            </label>
+        </span>
+
+    </div>
+    </div>
+    }
+@*
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+
+
+    <script>
+        //check username is empty
+        function checkusername() {
+
+            let userName = document.getElementById("user");
+
+            if (userName.value.trim() === "") {
+                onError(userName, "User Name cannot be empty");
+                userName.classList.add('error');
+            }
+            else if (userName.value.trim() != "") {
+                if (userName.value.length < 8 && userName.value.length > 4) {
+                    userName.classList.add('success');
+                    onSuccess(userName);
+                }
+                else {
+                    userName.classList.add('error');
+                    onError(userName, "Username length should greater than 4");
+                }
+            }
+            else {
+                onSuccess(userName);
+            }
+        }
+        //password
+        function checkpassword() {
+            let pwd = document.getElementById("password");
+            if (pwd.value.trim() === "") {
+                pwd.classList.add('error');
+                onError(pwd, "Password cannot be empty");
+            }
+            else if (pwd.value.trim() != "") {
+                var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,9}$/;
+                if (pwd.value.match(passw)) {
+                    pwd.classList.add('success');
+                    onSuccess(pwd);
+                }
+                else {
+                    pwd.classList.add('error');
+                    onError(pwd, "Enter strong password");
+                }
+            }
+            else {
+                onSuccess(pwd);
+            }
+        }
+
+        //onSuccess method
+
+        function onSuccess(input) {
+            let parent = input.parentElement;
+            let messageEle = parent.querySelector("small");
+            messageEle.style.visibility = "hidden";
+            parent.classList.remove("error");
+            parent.classList.add("success");
+
+        }
+
+        //OnError method
+
+        function onError(input, message) {
+            let parent = input.parentElement;
+            let messageEle = parent.querySelector("small");
+            messageEle.style.visibility = "visible";
+            messageEle.innerText = message;
+            parent.classList.add("error");
+            parent.classList.remove("success");
+        }
+    </script>
+
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

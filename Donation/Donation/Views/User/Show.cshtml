@@ -1,0 +1,50 @@
+﻿@model Donation.Models.UserImageModel
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<link href="~/Content/Header.css" rel="stylesheet" />
+<div class="header">
+
+
+    <div class="link1">
+
+        <b> Welcome @Session["Username"]</b>
+        @Html.ActionLink("Home", "UserPageView", "User")
+        @Html.ActionLink("About", "About", "User")
+        @*    @Html.ActionLink("Create Donation", "CreateDonation", "User") *@
+        @Html.ActionLink("Donation!", "ViewAddAdminDonation", "User")
+        @Html.ActionLink("Contact", "Contact", "User")
+    </div>
+</div>
+
+
+@*
+    <div>
+        <h4>UserImageModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.userId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.userId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.userImage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.userImage)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+*@

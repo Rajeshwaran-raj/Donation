@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "AddDonation";
+    Layout = null;
+}
+
+
+<link href="~/Content/Header.css" rel="stylesheet" />
+<link href="~/Content/CSS/login.css" rel="stylesheet" />
+
+
+
+
+<div class="header">
+
+
+    <div class="link1">
+        <i class="fa-solid fa-house" style="color: #5A769E;" onclick=" location.href='@Url.Action("Login","Home")' "></i>
+        @Html.ActionLink("Home", "AdminPageView", "Admin")
+        @Html.ActionLink("Edit User Details", "GetDetails", "Admin")
+        @Html.ActionLink("Contact details", "GetContactDetails", "Admin")
+        @Html.ActionLink("Add Donation", "AddAdminDonation", "Admin")
+        @Html.ActionLink("Donation Detials", "IndexAddAdminDonation", "Admin")
+
+    </div>
+</div>
+
+@*
+
+<div>
+    <input type="file" id="imageFile" name="imageFile" accept="image/*" onchange="loadFile(event)" />
+</div> 
+
+<script>
+    /*Uploading the image in the template*/
+
+    var loadFile = function (event) {
+        var image = document.getElementById('template2');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+        //document.getElementById("imageFile").addEventListener("change", uploadImage);
+
+        //function uploadImage() {
+        //    var file = document.getElementById("imageFile").files[0];
+        //    var reader = new FileReader();
+        //    reader.onloadend = function () {
+        //        document.getElementById("template2").src = reader.result;
+        //    };
+        //    if (file) {
+        //        reader.readAsDataURL(file);
+        //    } else {
+        //        document.getElementById("template2").src = "";
+        //    }
+        //}
+
+</script>
+    *@

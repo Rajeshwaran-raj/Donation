@@ -1,0 +1,144 @@
+﻿
+
+@{
+    ViewBag.Title = "IndexAddAdminDonation";
+    Layout = null;
+}
+@*
+    @Styles.Render("~/Content/css")*@
+<link href="~/Content/Header.css" rel="stylesheet" />
+<style>
+    .topnavadd {
+        overflow: hidden;
+        background-color: #DED7CD;
+        padding: 0px;
+    }
+
+        .topnavadd ul a {
+            color: #5A769E;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .topnavadd ul li {
+            overflow: hidden;
+            float: right;
+            text-align: center;
+            padding: 14px 16px;
+            font-size: 25px;
+            list-style: none;
+            top: 0px;
+        }
+
+        .topnavadd ul a:hover {
+            color: white;
+        }
+
+        .topnavadd ul a {
+            color: #5A769E;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+    .nav-logo {
+        height: 50px;
+        width: 90px;
+        margin-left: 8px;
+    }
+
+        .nav-logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .table {
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .table td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+    .contact-table {
+        margin-top: 190px;
+        margin: auto;
+        width: 80%;
+        /*border: 1px solid black;*/
+    }
+
+        .contact-table h2 {
+            margin-top: 30px;
+        }
+
+    .topnav {
+        display: none;
+    }
+</style>
+
+
+
+<div class="header">
+
+
+    <div class="link1">
+        <i class="fa-solid fa-house" style="color: #5A769E;" onclick=" location.href='@Url.Action("Login","Home")' "></i>
+        @Html.ActionLink("Home", "AdminPageView", "Admin")
+        @Html.ActionLink("Edit User Details", "GetDetails", "Admin")
+        @Html.ActionLink("Contact details", "GetContactDetails", "Admin")
+        @Html.ActionLink("Add Donation", "AddAdminDonation", "Admin")
+        @Html.ActionLink("Donation Detials", "IndexAddAdminDonation", "Admin")
+
+    </div>
+</div>
+
+
+
+<div class="contact-table">
+    <div class="contact-table">
+        <h2><center>AddDonation</center></h2>
+
+
+        <table class="table">
+            <tr>
+                <td>Purpose</td>
+                <td>Description</td>
+                <td> Amount</td>
+                <td> Images</td>
+                <td> Edit</td>
+                <td> Delete</td>
+            </tr>
+
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+                <tr>
+                    <td> @Model.Rows[i][1]</td>
+                    <td> @Model.Rows[i][2]</td>
+                    <td> @Model.Rows[i][3]</td>
+                    <td>
+                        @*  @Model.Rows[i][4] *@
+                       @* <img src="@Model.Rows[i][4]" alt="Image" width="100" height="100" /> *@
+                    </td>
+                    <!-- Assuming the image URL is stored in Model.Rows[i][4] -->
+                    @*<img src="@i.Image" width="100" height="100" /> *@
+
+                    @*
+                        @foreach (var item in Model)
+                        {
+                            <img src="@item.Image" width="100" height="100" />
+                        }*@
+
+
+                    <td><a href="@Url.Action("EditAdminDonation", "Admin", new {@id = Model.Rows[i][0] })">Edit</a></td>
+                    <td><a href="@Url.Action("Delete", "Admin", new {@id = Model.Rows[i][0] })">Delete</a></td>
+                </tr>
+            }
+
+        </table>
+
+
+        <div>
+            <a href="@Url.Action("AddAdminDonation","Admin")"><center>Add New Data</center></a>
+        </div>
